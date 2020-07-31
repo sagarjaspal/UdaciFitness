@@ -61,7 +61,7 @@ export function getMetricMetaInfo(metric) {
       getIcon() {
         return (
           <View>
-            <MaterialIcons name="direction-run" color="black" size={35} />
+            <MaterialIcons name="directions-run" color="black" size={35} />
           </View>
         );
       },
@@ -124,5 +124,5 @@ export function getMetricMetaInfo(metric) {
     },
   };
 
-  return typeof metric === undefined ? info : info[metric];
+  return typeof metric === "undefined" ? info : info[metric];
 }
