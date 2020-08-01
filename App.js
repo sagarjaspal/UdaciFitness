@@ -1,14 +1,18 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import { logger } from "redux-logger";
 import { View } from "react-native";
 
+import reducer from "./reducers";
 import AddEntry from "./components/AddEntry";
 
 export default function App() {
   return (
-    <View>
-      <StatusBar style="auto" />
-      <AddEntry />
-    </View>
+    <Provider store={createStore(reducer, applyMiddleware(logger))}>
+      <View style={{ flex: 1 }}>
+        <AddEntry />
+      </View>
+    </Provider>
   );
 }
